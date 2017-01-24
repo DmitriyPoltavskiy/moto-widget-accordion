@@ -1,0 +1,27 @@
+{
+  "name": "widget-accordion",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Dmitriy Poltavskiy <di77929@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/DmitriyPoltavskiy/widget-accordion",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "normalize-css": "^5.0.0",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "angular-animate": "^1.6.1",
+    "angular-sanitize": "^1.6.1",
+    "angular-bootstrap": "^2.4.0"
+  }
+}
