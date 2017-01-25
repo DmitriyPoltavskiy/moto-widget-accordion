@@ -17,3 +17,4 @@ bower install
 
 Запуск сборки: gulp build
 
+# Так же можно просто открыть index.html файл
