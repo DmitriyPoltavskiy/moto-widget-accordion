@@ -1,2 +1,23 @@
 body {
   padding-top: 100px; }
+
+.moto-accordion-item {
+  display: block;
+  margin-bottom: 5px; }
+  .moto-accordion-item .header {
+    cursor: pointer; }
+  .moto-accordion-item .content {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.5s ease-in;
+    transition: max-height 0.5s ease-in; }
+    .moto-accordion-item .content.isOpen {
+      height: auto; }
+    .moto-accordion-item .content .content-text {
+      margin: 10px; }
+
+label {
+  font-weight: normal; }
+
+.isOpen {
+  height: auto; }

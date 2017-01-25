@@ -16,12 +16,7 @@
   ],
   "dependencies": {
     "angular": "^1.6.0",
-    "normalize-css": "^5.0.0",
-    "jquery": "^3.1.1"
+    "bootstrap": "^3.3.7"
   },
-  "devDependencies": {
-    "angular-animate": "^1.6.1",
-    "angular-sanitize": "^1.6.1",
-    "angular-bootstrap": "^2.4.0"
-  }
+  "devDependencies": {}
 }

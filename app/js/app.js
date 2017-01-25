@@ -1,48 +1,74 @@
-angular.module('widget-accordion', ['ui.bootstrap']);
-angular.module('widget-accordion').controller('AccordionCtrl', function ($scope) {
-  $scope.oneAtATime = true;
+angular.module('moto-accordionApp', [])
+.component('motoAccordionItem', {
+	transclude: {
+		'header': 'header',
+		'body': 'div'
+	},
+	template: `
+		<div class="panel-heading header" ng-click="$ctrl.openAccordion()" ng-transclude="header"></div>
+		<section ng-transclude="body" class="content"></section>
+	`,
+	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
+		var vm = this;
+		vm.isOpen = false;
 
-  $scope.groups = [
-    {
-      title: 'Заголовок можно передавать из scope контроллера',
-      content: 'Контент из scope'
-    },
-    {
-      title: 'ng-repeat будет создавать новый аккордеон пока в scope есть объекты',
-      content: 'Контент из scope'
-    } 
-  ];
+		$scope.$on('closeOtherAccodion', function (event) {
+			vm.isOpen = true;
+			vm.openAccordion();
+		});
 
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
+		vm.openAccordion = function() {
+			if(!vm.isOpen) {
 
-  $scope.status = {
-    isCustomHeaderOpen: false,
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
+				if($scope.$parent.$parent.$ctrl.openOnlyOneIsChecked) {
+					$scope.$emit('openAccordion');
+				}
+				
+				$element.find('section').addClass('isOpen');
+				vm.isOpen = true;
+
+			}
+			else if(vm.isOpen) {
+
+				if($scope.$parent.$parent.$ctrl.openOnlyOneIsChecked) {
+					$scope.$emit('closeAllAccordeon');
+				}
+
+				$element.find('section').removeClass('isOpen');
+				vm.isOpen = false;
+			}
+		}
+	}]
 })
-.directive('accordeon', function() {
-  return {
-      restrict: 'A',
-      transclude: {
-        'header': 'header',
-        'body': 'section',
-        'footer': 'footer'
-      },
-      template: '<div style="border: 1px solid black;">' +
-                  '<div class="header" ng-transclude="header">Fallback Title</div>' +
-                  '<div ng-transclude="body">Fallback Body</div>' +
-                  '<div class="footer" ng-transclude="footer">Fallback Footer</div>' +
-                '</div>'
-    };
+.component('motoAccordion', {
+	transclude: true,
+	template: `
+		<label ng-hide="!$ctrl.openOnlyOneActivate"><input type="checkbox" ng-click="$ctrl.openOnlyOne()" name="">Toggle - Open only one at a time</label>
+		<div ng-transclude></div>
+	`,
+	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
+		var vm = this;
+		vm.openOnlyOneActivate = true;
+		vm.openOnlyOneIsChecked = false;
+
+		vm.openOnlyOne = function() {
+			if(!vm.openOnlyOneIsChecked) {
+				vm.openOnlyOneIsChecked = true;
+
+				$scope.$on('openAccordion', function (event) {
+					$scope.$broadcast('closeOtherAccodion');
+				});
+				
+				$scope.$on('closeAllAccordeon', function (event) {
+					$element.find('section').removeClass('isOpen');
+					$scope.$$childTail.$$childHead.$ctrl.isOpen = false;	
+				});
+			}
+			else if(vm.openOnlyOneIsChecked) {
+				vm.openOnlyOneIsChecked = false;
+			}
+		}
+
+	}]
 })
-.controller('accordeonCtrl', ['$scope', function($scope) {
-  $scope.header = 'Multi-slot transclusion header';
-  $scope.content = 'Multi-slot transclusion content';
-  $scope.footer = 'Multi-slot transclusion footer';
-}]);

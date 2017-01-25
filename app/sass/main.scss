@@ -1,3 +1,38 @@
 body {
 	padding-top: 100px;
 }
+
+.moto-accordion-item {
+	display: block;
+	margin-bottom: 5px;
+
+	.header {
+		cursor: pointer;
+	}
+	
+	.content {
+		height: 0;
+		// max-height: 0;
+		overflow: hidden;
+
+		-webkit-transition: max-height 0.5s ease-in;
+		-moz-transition: max-height 0.5s ease-in;
+		transition: max-height 0.5s ease-in;
+
+		&.isOpen {
+			// max-height: 1000px;
+			height: auto;
+		}
+
+		.content-text {
+			margin: 10px;
+		}
+	}
+}
+label {
+	font-weight: normal;
+}
+
+.isOpen {
+			height: auto;
+		}
