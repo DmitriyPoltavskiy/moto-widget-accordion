@@ -4,10 +4,9 @@ angular.module('moto-accordionApp', [])
 		'header': 'header',
 		'body': 'div'
 	},
-	template: `
-		<div class="panel-heading header" ng-click="$ctrl.openAccordion()" ng-transclude="header"></div>
-		<section ng-transclude="body" class="content"></section>
-	`,
+	template: 
+	'<div class="panel-heading header" ng-click="$ctrl.openAccordion()" ng-transclude="header"></div>' +
+	'<section ng-transclude="body" class="content"></section>',
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
 		var vm = this;
 		vm.isOpen = false;
@@ -16,7 +15,6 @@ angular.module('moto-accordionApp', [])
 			vm.isOpen = true;
 			vm.openAccordion();
 		});
-
 
 		vm.openAccordion = function() {
 			if(!vm.isOpen) {
@@ -43,14 +41,24 @@ angular.module('moto-accordionApp', [])
 })
 .component('motoAccordion', {
 	transclude: true,
-	template: `
-		<label ng-hide="!$ctrl.openOnlyOneActivate"><input type="checkbox" ng-click="$ctrl.openOnlyOne()" name="">Toggle - Open only one at a time</label>
-		<div ng-transclude></div>
-	`,
+	template: 
+
+	'<label ng-hide="!$ctrl.openOnlyOneActivate">' +
+		'<input type="checkbox" ng-click="$ctrl.openOnlyOne()" name="">' + 
+		'Toggle - Open only one at a time' + 
+	'</label>' +
+	'<button ng-hide="!$ctrl.closeAll" ng-click="$ctrl.closeAllItem()">Close all</button>' +
+	'<div ng-transclude></div>',
+
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
 		var vm = this;
 		vm.openOnlyOneActivate = true;
+		vm.closeAll = true;
 		vm.openOnlyOneIsChecked = false;
+
+		vm.closeAllItem = function() {
+			$scope.$broadcast('closeOtherAccodion');
+		}
 
 		vm.openOnlyOne = function() {
 			if(!vm.openOnlyOneIsChecked) {
@@ -59,10 +67,9 @@ angular.module('moto-accordionApp', [])
 				$scope.$on('openAccordion', function (event) {
 					$scope.$broadcast('closeOtherAccodion');
 				});
-				
+
 				$scope.$on('closeAllAccordeon', function (event) {
 					$element.find('section').removeClass('isOpen');
-					$scope.$$childTail.$$childHead.$ctrl.isOpen = false;	
 				});
 			}
 			else if(vm.openOnlyOneIsChecked) {

@@ -14,10 +14,7 @@ body {
     .moto-accordion-item .content.isOpen {
       height: auto; }
     .moto-accordion-item .content .content-text {
-      margin: 10px; }
+      margin: 10px 15px; }
 
 label {
   font-weight: normal; }
-
-.isOpen {
-  height: auto; }
