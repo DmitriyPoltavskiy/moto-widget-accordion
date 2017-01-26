@@ -72,9 +72,6 @@ angular.module('moto-accordionApp', [])
 					$scope.$broadcast('closeOtherAccodion');
 				});
 
-				$scope.$on('closeAllAccordeon', function (event) {
-					$element.find('section').removeClass('isOpen');
-				});
 			}
 			else if(vm.openOnlyOneIsChecked) {
 				vm.openOnlyOneIsChecked = false;
