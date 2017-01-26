@@ -45,15 +45,15 @@ angular.module('moto-accordionApp', [])
 	transclude: true,
 	template:
 
-	'<label ng-show="$ctrl.openOnlyOneActivateCheckbox">' +
+	'<label ng-show="$ctrl.openOnlyOneCheckbox">' +
 		'<input type="checkbox" ng-click="$ctrl.openOnlyOne()" name="">' + 
 		'Toggle - Open only one at a time' + 
 	'</label>' +
 	'<button ng-show="$ctrl.closeAllButton" ng-click="$ctrl.closeAllItem()">Close all</button>' +
 	'<div ng-transclude></div>',
-	
+
 	bindings: {
-		openOnlyOneActivateCheckbox: '=openOnlyOne',
+		openOnlyOneCheckbox: '=openOnlyOne',
 		closeAllButton: '=closeAll'
 	},
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
