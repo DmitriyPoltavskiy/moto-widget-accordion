@@ -4,9 +4,11 @@ angular.module('moto-accordionApp', [])
 		'header': 'header',
 		'body': 'div'
 	},
-	template: 
+	template:
+
 	'<div class="panel-heading header" ng-click="$ctrl.openAccordion()" ng-transclude="header"></div>' +
 	'<section ng-transclude="body" class="content"></section>',
+
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
 		var vm = this;
 		vm.isOpen = false;
@@ -41,20 +43,21 @@ angular.module('moto-accordionApp', [])
 })
 .component('motoAccordion', {
 	transclude: true,
-	template: 
+	template:
 
-	'<label ng-hide="!$ctrl.openOnlyOneActivate">' +
+	'<label ng-show="$ctrl.openOnlyOneActivateCheckbox">' +
 		'<input type="checkbox" ng-click="$ctrl.openOnlyOne()" name="">' + 
 		'Toggle - Open only one at a time' + 
 	'</label>' +
-	'<button ng-hide="!$ctrl.closeAll" ng-click="$ctrl.closeAllItem()">Close all</button>' +
+	'<button ng-show="$ctrl.closeAllButton" ng-click="$ctrl.closeAllItem()">Close all</button>' +
 	'<div ng-transclude></div>',
-
+	
+	bindings: {
+		openOnlyOneActivateCheckbox: '=openOnlyOne',
+		closeAllButton: '=closeAll'
+	},
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
 		var vm = this;
-		vm.openOnlyOneActivate = true;
-		vm.closeAll = true;
-		vm.openOnlyOneIsChecked = false;
 
 		vm.closeAllItem = function() {
 			$scope.$broadcast('closeOtherAccodion');
@@ -76,6 +79,5 @@ angular.module('moto-accordionApp', [])
 				vm.openOnlyOneIsChecked = false;
 			}
 		}
-
 	}]
 })
