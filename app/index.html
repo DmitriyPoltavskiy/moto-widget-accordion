@@ -19,6 +19,7 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 ">
 
+			<h3>Open only one is on</h3>
 			<moto-accordion open-only-one="true" close-all="true">
 
 				<moto-accordion-item on-toggle='$ctrl.test()' class="moto-accordion-item panel panel-default">
@@ -50,6 +51,37 @@
 
 			</moto-accordion>
 
+			<h3>Open only one is off</h3>
+			<moto-accordion open-only-one="false" close-all="true">
+
+				<moto-accordion-item on-toggle='$ctrl.test()' class="moto-accordion-item panel panel-default">
+					<header class="header-text">
+						Header1
+					</header>
+					<div class="content-text">
+						content1
+					</div>
+				</moto-accordion-item>
+
+				<moto-accordion-item class="moto-accordion-item panel panel-default">
+					<header class="header-text">
+						Header2
+					</header>
+					<div class="content-text">
+						content2
+					</div>
+				</moto-accordion-item>
+
+				<moto-accordion-item class="moto-accordion-item panel panel-default">
+					<header class="header-text">
+						Header3
+					</header>	
+					<div class="content-text">
+						content3
+					</div>
+				</moto-accordion-item>
+
+			</moto-accordion>
 		</div>
 	</div>
 </div>
