@@ -58,6 +58,7 @@ angular.module('moto-accordionApp', [])
 	},
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
 		var vm = this;
+		vm.openOnlyOneIsChecked = false;
 
 		vm.closeAllItem = function() {
 			$scope.$broadcast('closeOtherAccodion');
