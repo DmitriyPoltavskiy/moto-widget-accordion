@@ -21,7 +21,7 @@ angular.module('moto-accordionApp', [])
 		vm.openAccordion = function() {
 			if(!vm.isOpen) {
 
-				if($scope.$parent.$parent.$ctrl.openOnlyOneIsChecked) {
+				if($scope.$parent.$parent.$ctrl.openOnlyOneActivate) {
 					$scope.$emit('openAccordion');
 				}
 				
@@ -30,11 +30,6 @@ angular.module('moto-accordionApp', [])
 
 			}
 			else if(vm.isOpen) {
-
-				// if($scope.$parent.$parent.$ctrl.openOnlyOneIsChecked) {
-				// 	$scope.$emit('closeAllAccordeon');
-				// }
-
 				$element.find('section').removeClass('isOpen');
 				vm.isOpen = false;
 			}
@@ -45,10 +40,6 @@ angular.module('moto-accordionApp', [])
 	transclude: true,
 	template:
 
-	'<label ng-show="$ctrl.openOnlyOneCheckbox">' +
-		'<input type="checkbox" ng-click="$ctrl.openOnlyOne()" name="">' + 
-		'Toggle - Open only one at a time' + 
-	'</label>' +
 	'<button ng-show="$ctrl.closeAllButton" ng-click="$ctrl.closeAllItem()">Close all</button>' +
 	'<div ng-transclude></div>',
 
@@ -58,24 +49,18 @@ angular.module('moto-accordionApp', [])
 	},
 	controller: ['$element', '$attrs', '$scope', function($element, $attrs, $scope) {
 		var vm = this;
-		vm.openOnlyOneIsChecked = false;
+		vm.openOnlyOneActivate = false;
 
 		vm.closeAllItem = function() {
 			$scope.$broadcast('closeOtherAccodion');
 		}
 
-		vm.openOnlyOne = function() {
-			if(!vm.openOnlyOneIsChecked) {
-				vm.openOnlyOneIsChecked = true;
+		if(vm.openOnlyOneCheckbox === true) {
+			vm.openOnlyOneActivate = true;
 
-				$scope.$on('openAccordion', function (event) {
-					$scope.$broadcast('closeOtherAccodion');
-				});
-
-			}
-			else if(vm.openOnlyOneIsChecked) {
-				vm.openOnlyOneIsChecked = false;
-			}
+			$scope.$on('openAccordion', function (event) {
+				$scope.$broadcast('closeOtherAccodion');
+			});
 		}
 	}]
 })
