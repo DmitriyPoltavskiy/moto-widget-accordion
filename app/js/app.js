@@ -31,9 +31,9 @@ angular.module('moto-accordionApp', [])
 			}
 			else if(vm.isOpen) {
 
-				if($scope.$parent.$parent.$ctrl.openOnlyOneIsChecked) {
-					$scope.$emit('closeAllAccordeon');
-				}
+				// if($scope.$parent.$parent.$ctrl.openOnlyOneIsChecked) {
+				// 	$scope.$emit('closeAllAccordeon');
+				// }
 
 				$element.find('section').removeClass('isOpen');
 				vm.isOpen = false;
