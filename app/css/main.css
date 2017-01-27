@@ -11,10 +11,13 @@ body {
     overflow: hidden;
     -webkit-transition: max-height 0.5s ease-in;
     transition: max-height 0.5s ease-in; }
-    .moto-accordion-item .content.isOpen {
-      height: auto; }
     .moto-accordion-item .content .content-text {
       margin: 10px 15px; }
+  .moto-accordion-item.isOpen .content {
+    height: auto; }
 
 label {
   font-weight: normal; }
+
+.ng-cloak {
+  display: none; }
