@@ -1,7 +1,7 @@
 angular.module('moto-accordionApp')
 .component('motoAccordion', {
 	bindings: {
-		openOnlyOneCheckbox: '=openOnlyOne'
+		openOnlyOne: '=openOnlyOne'
 	},
 	controller: [
 		'$element',

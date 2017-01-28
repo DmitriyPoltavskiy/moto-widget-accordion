@@ -18,7 +18,7 @@ angular.module('moto-accordionApp')
 			this.$onInit = function () {
 				this.open = function() {
 					if(!$element.hasClass('isOpen')) {
-						if(this.motoAccordion.openOnlyOneCheckbox === true) {
+						if(this.motoAccordion.openOnlyOne === true) {
 							this.motoAccordion.close();
 						}
 						$element.addClass('isOpen');
