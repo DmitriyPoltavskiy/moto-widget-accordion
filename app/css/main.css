@@ -13,7 +13,7 @@ body {
     transition: max-height 0.5s ease-in; }
     .moto-accordion-item .content .content-text {
       margin: 10px 15px; }
-  .moto-accordion-item.isOpen .content {
+  .moto-accordion-item.isOpen > .content {
     height: auto; }
 
 label {
