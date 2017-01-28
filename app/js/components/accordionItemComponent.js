@@ -14,8 +14,7 @@ angular.module('moto-accordionApp')
 		'$element',
 		'$attrs',
 		'$scope',
-		'openAccordionService',
-		function($element, $attrs, $scope, openAccordionService) {
+		function($element, $attrs, $scope) {
 			this.$onInit = function () {
 				this.open = function() {
 					if(!$element.hasClass('isOpen')) {
