@@ -19,16 +19,20 @@ body {
 		-moz-transition: max-height 0.5s ease-in;
 		transition: max-height 0.5s ease-in;
 
-		&.isOpen {
-			// max-height: 1000px;
-			height: auto;
-		}
-
 		.content-text {
 			margin: 10px 15px;
 		}
+	}
+	&.isOpen > .content{
+		height: auto;
 	}
 }
 label {
 	font-weight: normal;
 }
+
+
+.ng-cloak {
+	display: none;
+}
+
