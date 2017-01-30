@@ -15,17 +15,15 @@ angular.module('moto-accordionApp')
 		'$attrs',
 		'$scope',
 		function($element, $attrs, $scope) {
-			this.$onInit = function () {
-				this.open = function() {
-					if(!$element.hasClass('isOpen')) {
-						if(this.motoAccordion.openOnlyOne === true) {
-							this.motoAccordion.close();
-						}
-						$element.addClass('isOpen');
+			this.open = function() {
+				if(!$element.hasClass('isOpen')) {
+					if(this.motoAccordion.openOnlyOne === true) {
+						this.motoAccordion.close();
 					}
-					else {
-						$element.removeClass('isOpen');
-					}
+					$element.addClass('isOpen');
+				}
+				else {
+					$element.removeClass('isOpen');
 				}
 			}
 		}
