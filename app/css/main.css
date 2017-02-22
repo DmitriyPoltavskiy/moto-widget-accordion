@@ -7,14 +7,15 @@ body {
   .moto-accordion-item .header {
     cursor: pointer; }
   .moto-accordion-item .content {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    -webkit-transition: max-height 0.5s ease-in;
-    transition: max-height 0.5s ease-in; }
-    .moto-accordion-item .content.isOpen {
-      height: auto; }
+    -webkit-transition: all cubic-bezier(1, 0, 0, 1) 0.5s;
+    transition: all cubic-bezier(1, 0, 0, 1) 0.5s; }
     .moto-accordion-item .content .content-text {
+      display: block;
       margin: 10px 15px; }
+  .moto-accordion-item.moto-accordion-item-opened > .content {
+    max-height: 1500px; }
 
 label {
   font-weight: normal; }
