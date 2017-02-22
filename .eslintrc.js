@@ -1,38 +1,30 @@
-module.exports = {
+module.exports = 
+{
+    "env": {
+        "browser": true,
+        "jquery": true
+    },
+    "globals": {
+        "angular": true
+    },
     "rules": {
-    "no-empty": 0,
-    "no-console": 0,
-    "no-unused-vars": [0, { "varsIgnorePattern": "^h$" }],
-    "brace-style": [2, "stroustrup", { "allowSingleLine":true }],
-    "no-cond-assign": 1,
-    "camelcase": 0,
-    "comma-style": 2,
-    "comma-dangle": [2, "never"],
-    "indent": [2, "tab", {"SwitchCase": 1}],
-    "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
-    "max-nested-callbacks": [2, 3],
-    "no-eval": 2,
-    "no-implied-eval": 2,
-    "no-new-func": 2,
-    "guard-for-in": 0,
-    "eqeqeq": [2, "smart"],
-    "no-else-return": 2,
-    "no-redeclare": 2,
-    "no-dupe-keys": 2,
-    "radix": 2,
-    "strict": [2, "never"],
-    "no-shadow": 0,
-    "no-delete-var": 2,
-    "no-undef-init": 2,
-    "no-shadow-restricted-names": 2,
-    "handle-callback-err": 0,
-    "no-lonely-if": 2,
-    "constructor-super": 2,
-    "no-this-before-super": 2,
-    "no-dupe-class-members": 2,
-    "no-const-assign": 2,
-    "prefer-spread": 2,
-    "no-useless-concat": 2,
-    "object-shorthand": 2,
-  }
+        "semi": [2, "always"],
+        "space-before-function-paren": [2, "never"],
+        "no-empty": [0],
+        "no-mixed-spaces-and-tabs": [2],
+        "no-trailing-spaces": [1],
+        "space-infix-ops": [1],
+        "quotes": [1, "single"],
+        "no-underscore-dangle": [0],
+        "no-unused-vars": 2,
+        "one-var": [2, "always"],
+        "vars-on-top": 2,
+        "no-undef": 2,
+        "no-use-before-define": 2,
+        "keyword-spacing": 1,
+        "key-spacing": 1,
+        "space-before-blocks": 1,
+        "space-in-parens": 1,
+        "camelcase": [1, {"properties": "always"}]
+    }
 };

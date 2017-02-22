@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="motoAccordionApp">
+<head>
+	<title>widget-accordion</title>
+	<meta charset="UTF-8">
+	
+	<!-- build:css css/vendor.min.css -->
+	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+	<!-- endbuild -->
+
+	<!-- build:css css/main.min.css -->
+	<link rel="stylesheet" href="app/css/main.css">
+	<!-- endbuild -->
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+
+				<h3>Open only one is on</h3>
+				<moto-accordion open-only-one="true" close-all="true">
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header1
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content1
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header2
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content2
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header3
+						</moto-accordion-item-header>	
+						<moto-accordion-item-body class="content-text">
+							content3
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+				</moto-accordion>
+
+			</div>
+			<div class="col-md-6">
+
+				<h3>Open only one is off</h3>
+				<moto-accordion open-only-one="false" close-all="true">
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header1
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content1
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header2
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content2
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header3
+						</moto-accordion-item-header>	
+						<moto-accordion-item-body class="content-text">
+							content3
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+				</moto-accordion>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+
+				<h3>Open only one is on</h3>
+				<p>With Nesting</p>
+				<moto-accordion open-only-one="true" close-all="true">
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header1
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content1
+							<moto-accordion open-only-one="true" close-all="true">
+
+								<moto-accordion-item class="moto-accordion-item panel panel-default">
+									<moto-accordion-item-header class="header-text">
+										Header1
+									</moto-accordion-item-header>
+									<moto-accordion-item-body class="content-text">
+										content1
+										<moto-accordion open-only-one="true" close-all="true">
+
+											<moto-accordion-item class="moto-accordion-item panel panel-default">
+												<moto-accordion-item-header class="header-text">
+													Header1
+												</moto-accordion-item-header>
+												<moto-accordion-item-body class="content-text">
+													content1
+												</moto-accordion-item-body>
+											</moto-accordion-item>
+
+											<moto-accordion-item class="moto-accordion-item panel panel-default">
+												<moto-accordion-item-header class="header-text">
+													Header2
+												</moto-accordion-item-header>
+												<moto-accordion-item-body class="content-text">
+													content2
+												</moto-accordion-item-body>
+											</moto-accordion-item>
+
+										</moto-accordion>
+									</moto-accordion-item-body>
+								</moto-accordion-item>
+
+								<moto-accordion-item class="moto-accordion-item panel panel-default">
+									<moto-accordion-item-header class="header-text">
+										Header2
+									</moto-accordion-item-header>
+									<moto-accordion-item-body class="content-text">
+										content2
+									</moto-accordion-item-body>
+								</moto-accordion-item>
+
+							</moto-accordion>
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header2
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content2
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header3
+						</moto-accordion-item-header>	
+						<moto-accordion-item-body class="content-text">
+							content3
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+				</moto-accordion>
+
+			</div>
+			<div class="col-md-6">
+
+				<h3>Open only one is off</h3>
+				<p>With Nesting</p>
+				<moto-accordion open-only-one="false" close-all="true">
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header1
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content1
+							<moto-accordion open-only-one="false" close-all="true">
+
+								<moto-accordion-item class="moto-accordion-item panel panel-default">
+									<moto-accordion-item-header class="header-text">
+										Header1
+									</moto-accordion-item-header>
+									<moto-accordion-item-body class="content-text">
+										content1
+										<moto-accordion open-only-one="false" close-all="true">
+
+											<moto-accordion-item class="moto-accordion-item panel panel-default">
+												<moto-accordion-item-header class="header-text">
+													Header1
+												</moto-accordion-item-header>
+												<moto-accordion-item-body class="content-text">
+													content1
+												</moto-accordion-item-body>
+											</moto-accordion-item>
+
+											<moto-accordion-item class="moto-accordion-item panel panel-default">
+												<moto-accordion-item-header class="header-text">
+													Header2
+												</moto-accordion-item-header>
+												<moto-accordion-item-body class="content-text">
+													content2
+												</moto-accordion-item-body>
+											</moto-accordion-item>
+
+										</moto-accordion>
+									</moto-accordion-item-body>
+								</moto-accordion-item>
+
+								<moto-accordion-item class="moto-accordion-item panel panel-default">
+									<moto-accordion-item-header class="header-text">
+										Header2
+									</moto-accordion-item-header>
+									<moto-accordion-item-body class="content-text">
+										content2
+									</moto-accordion-item-body>
+								</moto-accordion-item>
+
+							</moto-accordion>
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header2
+						</moto-accordion-item-header>
+						<moto-accordion-item-body class="content-text">
+							content2
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+					<moto-accordion-item class="moto-accordion-item panel panel-default">
+						<moto-accordion-item-header class="header-text">
+							Header3
+						</moto-accordion-item-header>	
+						<moto-accordion-item-body class="content-text">
+							content3
+						</moto-accordion-item-body>
+					</moto-accordion-item>
+
+				</moto-accordion>
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+
+	<script type="text/javascript" src="app/js/app.js"></script>
+	<script type="text/javascript" src="app/js/components/accordionComponent.js"></script>
+	<script type="text/javascript" src="app/js/components/accordionItemComponent.js"></script>
+</body>
+</html>

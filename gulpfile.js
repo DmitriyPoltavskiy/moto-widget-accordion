@@ -20,7 +20,7 @@ gulp.task('lint', () => {
 
 // server  
 gulp.task('start', function() {
-		gulp.src('app') // from
+		gulp.src('.') // from
 	.pipe(server({
 		livereload: true,
 		open: true
@@ -32,18 +32,11 @@ gulp.task('sass', function () {
 	return gulp.src('app/sass/**/*.scss')
 	.pipe(sass().on('error', sass.logError))
 	.pipe(autoprefixer({
-		browsers: ['last 15 versions']
+		browserslist: {
+			'ie': '>=10'
+		}
 	}))
 	.pipe(gulp.dest('app/css'));
-});
-
-// build
-gulp.task('build', function () {
-	return gulp.src('app/*.html')
-		.pipe(useref())
-		.pipe(gulpif('*.js', uglify()))
-		.pipe(gulpif('*.css', minifyCss()))
-		.pipe(gulp.dest('public'));
 });
 
 // watch
